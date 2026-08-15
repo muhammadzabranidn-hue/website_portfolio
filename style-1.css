@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #050505;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 4rem;
+  /* Jarak antara Navbar dan Konten Utama di bawahnya */
+  gap: 60px; 
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: #a1a1a1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.5s;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(5px);
+}
+
+.contact-button {
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 550;
+  transition: all 0.5s ease-in;
+}
+
+.contact-button:hover {
+  transform: scale(0.95);
+  opacity: 0.5;
+}
+
+/* HERO CONTENT (WADAH UTAMA) */
+.hero-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* ATUR JARAK ANTAR ELEMEN DI SINI (Badge -> H1 -> Description -> Button) */
+  gap: 24px; 
+  max-width: 900px;
+  z-index: 10;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  width: fit-content;
+  transition: all 0.5s ease;
+}
+
+.badge:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hero-title {
+  font-size: 120px; /* Disesuaikan agar responsif */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.italic-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #a1a1a1;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* CTA BUTTONS */
+.CTA-Button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 10px; /* Jika ingin jarak ekstra khusus untuk tombol */
+}
+
+.CTA-button1 {
+  padding: 12px 24px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.CTA-button1:hover {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.CTA-github {
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.CTA-github:hover {
+  transform: translateX(3px);
+  background: rgba(255, 255, 255, 0.15);
+}
