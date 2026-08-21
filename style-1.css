@@ -12,6 +12,31 @@ body {
   overflow-x: hidden;
 }
 
+/* Pastikan body siap menampung efek
+
+/* Efek Glow Oranye - Pojok Kiri Atas */
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -150px;
+  
+  /* Full Oranye: memudar dari 30% ke transparan */
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 18, 0.46) 0%,
+    rgba(252, 94, 42, 0.1) 45%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -24,10 +49,6 @@ body {
   align-items: center;
   z-index: 1000; /* Naikkan nilainya ke 1000 */
   padding: 1.5rem 4rem;
-  
-  /* Tambahkan background agar teks konten di bawahnya tidak tembus */
-  background: rgba(5, 5, 5, 0.85); 
-  backdrop-filter: blur(12px); 
 }
 
 /* HERO SECTION (Penyesuaian Padding Top) */
@@ -128,6 +149,25 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
+.dote{
+  width: 8px;
+  height: 8px;
+  background-color: #7fff92;
+  border-radius: 50%;
+  animation: pulse-glow 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.85); /* Opsional: mengecil sedikit saat pudar */
+  }
+}
+
 .hero-title {
   font-size: 120px;
   font-weight: 700;
@@ -196,4 +236,111 @@ body {
   margin: 40px 0;
   display: flex;
   justify-content: center;
+}
+
+/* Container Utama */
+.stats-container {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  max-width: 2000px;
+  margin: -70px auto 0 auto; /* Margin disesuaikan agar tidak berbenturan di mobile */
+  background-color: rgba(10, 10, 12, 0.85); /* Warna latar gelap semi-transparan */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Garis tepi halus */
+  border-radius: 18px; /* Sudut melengkung */
+  overflow: hidden;
+  backdrop-filter: blur(8px); /* Efek glassmorphism */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Setiap Kotak Statistik */
+.stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 8px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* Transisi halus saat kursor masuk/keluar */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+}
+
+/* Menghilangkan garis pemisah pada item terakhir */
+.stats-item:last-child {
+  border-right: none;
+}
+
+/* Style Angka (#FC5E2A) */
+.stats-number {
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: #FC5E2A;
+  margin-bottom: 12px;
+  line-height: 1;
+  
+  /* Transisi untuk efek terangkat */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Style Teks Label */
+.stats-label {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #9ca3af;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap; 
+  
+  /* Transisi untuk warna teks */
+  transition: color 0.3s ease;
+}
+
+/* ========================================= */
+/* EFEK HOVER                                */
+/* ========================================= */
+
+/* Background kotak berubah oranye transparan */
+.stats-item:hover {
+  background-color: rgba(252, 94, 42, 0.06);
+}
+
+/* Angka terangkat sedikit + efek bayangan menyala */
+.stats-item:hover .stats-number {
+  transform: translateY(-3px) scale(1.05);
+  text-shadow: 0 0 16px rgba(252, 94, 42, 0.4);
+}
+
+/* Label teks berubah menjadi putih terang */
+.stats-item:hover .stats-label {
+  color: #ffffff;
+}
+
+/* ========================================= */
+/* RESPONSIVE (HP / MOBILE)                  */
+/* ========================================= */
+@media (max-width: 768px) {
+  .stats-container {
+    width: 90%; /* Lebih lebar di HP agar muat */
+    margin: 20px auto; /* Reset margin minus agar tidak menutupi elemen di atasnya */
+    flex-direction: column;
+  }
+
+  .stats-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px 16px;
+  }
+
+  .stats-item:last-child {
+    border-bottom: none;
+  }
+
+  .stats-number {
+    font-size: 2.25rem;
+  }
 }
